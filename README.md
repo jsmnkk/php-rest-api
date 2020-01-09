@@ -50,3 +50,44 @@
   .DS_Store
   .env
   ```
+
+# To Deploy REST API via Heroku
+
+- **Step 1**: Now add a _Procfile_ in your project with the contents:-
+
+  ```Procfile
+  web: vendor/bin/heroku-php-apache2 public/
+  ```
+
+- **Step 2**: Since we are using Apache, we need to setup a _.htaccess_ file in _public_ to route requests to _index.php_. So create one with contents:-
+
+  ```htaccess
+  RewriteEngine On
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteRule ^ index.php [QSA,L]
+  ```
+
+- **Step 3**: Now create a folder _.github/workflows_ and in there create a file _main.yml_ with contents:
+
+  ```yaml
+  name: Deploy
+  on:
+    push:
+      branches:
+        - master
+  jobs:
+    build:
+      runs-on: ubuntu-latest
+
+      steps:
+        - uses: actions/checkout@v1.0.0
+        - uses: akhileshns/heroku-deploy@master
+          with:
+            heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+            heroku_email: ${{secrets.HEROKU_EMAIL}}
+            heroku_app_name: ${{secrets.HEROKU_APP_NAME}}
+  ```
+
+- **Step 4**: Now we can push this to GitHub but before that, make sure you have created a Heroku account and in account settings, copy the api key. Then in the github repo for this project, go to settings and add secrets HEROKU_API_KEY (Your copied apikey), HEROKU EMAIL (The email associated with your heroku account) and HEROKU_APP_NAME (The name of your app and keep in mind it needs to be unique in heroku)
+
+  Now whenever you push to the master branch of your github repo, your app is automatically deployed to heroku
