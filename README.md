@@ -1,4 +1,4 @@
-# JS REST API
+# PHP REST API
 
 - **Step 1**: To install PHP and Composer run
 
@@ -6,14 +6,14 @@
   - macos - `brew install php composer`
   - linux -
 
-  ```bash
-  # Run these commands one after another
-  sudo apt install php
+    ```bash
+    # Run these commands one after another
+    sudo apt install php
 
-  sudo apt update && sudo apt install wget php-cli php-zip unzip curl
-  curl -sS https://getcomposer.org/installer |php
-  sudo mv composer.phar /usr/local/bin/composer
-  ```
+    sudo apt update && sudo apt install wget php-cli php-zip unzip curl
+    curl -sS https://getcomposer.org/installer |php
+    sudo mv composer.phar /usr/local/bin/composer
+    ```
 
   [OR] Download and install PHP from [here](https://www.php.net/downloads.php) and Composer from [here](https://getcomposer.org/download/)
 
