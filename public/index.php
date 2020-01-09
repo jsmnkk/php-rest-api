@@ -6,6 +6,7 @@
   require __DIR__ . '/../vendor/autoload.php';
   
   $app = AppFactory::create();
+  $app->setBasePath("/public");
   
   $app->get('/hello', function (Request $request, Response $response, $args) {
       $response->getBody()->write("world of php");
