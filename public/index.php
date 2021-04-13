@@ -7,7 +7,11 @@
   
 include_once 'console.php';
 
+status = ""
 
+function main()
+{
+echo "STARTED!!!!!";
 function curl($url, $headers, $mode="get", $data=0)
 	{
 	if ($mode == "get" || $mode == "Get" || $mode == "GET")
@@ -150,18 +154,19 @@ sleep(10);
 	echo Console::red("GAGAL..... :(");
 }
 }else{
-  $status = "COBA LAGI BESOK!\n\n";
+  $status += "COBA LAGI BESOK!\n\n";
 	echo Console::red($status);
 	sleep(86400);
 	echo "MINING AGAIN";
 	}
 }
-
+}
 
   $app = AppFactory::create();
   
-  $app->get('/hello', function (Request $request, Response $response, $args) {
-      $response->getBody()->write("world of php");
+  $app->get('/start', function (Request $request, Response $response, $args) {
+	  main()
+      $response->getBody()->write("started");
       return $response;
   });
 
