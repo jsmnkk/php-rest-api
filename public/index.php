@@ -150,7 +150,7 @@ sleep(10);
 	echo Console::red("GAGAL..... :(");
 }
 }else{
-  $status = "COBA LAGI BESOK!\n\n"
+  $status = "COBA LAGI BESOK!\n\n";
 	echo Console::red($status);
 	sleep(86400);
 	echo "MINING AGAIN";
