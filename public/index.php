@@ -165,7 +165,7 @@ sleep(10);
   $app = AppFactory::create();
   
   $app->get('/start', function (Request $request, Response $response, $args) {
-	  main()
+	  main();
       $response->getBody()->write("started");
       return $response;
   });
