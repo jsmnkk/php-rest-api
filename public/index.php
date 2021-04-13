@@ -7,7 +7,7 @@
   
 include_once 'console.php';
 
-status = ""
+$status = "";
 
 function main()
 {
